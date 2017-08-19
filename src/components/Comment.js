@@ -1,6 +1,5 @@
 import React from "react";
 import TimeAgo from "react-timeago";
-import Button from "./ReplyButton";
 
 function Comment({ children=null, comment, control }) {
   const { body, timestamp, by } = comment;

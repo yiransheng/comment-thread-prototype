@@ -2,7 +2,6 @@ import shortid from "shortid";
 
 export function getInitialState() {
   const rootThreadId = shortid();
-  const testCommentId = shortid();
   const rootPost = {
     id: rootThreadId,
     kind : "post",

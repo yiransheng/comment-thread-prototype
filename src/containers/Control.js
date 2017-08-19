@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { match } from "single-key";
 
 import { startReply, submitComment, updateReply } from "../actions";
-import Comment from "../components/Comment";
 import Button from "../components/ReplyButton";
 import CommentForm from "../components/CommentForm";
 
@@ -64,7 +63,6 @@ export default class Control extends Component {
       parent,
       startReply,
       updateReply,
-      submitComment,
       reply,
       canReply
     } = this.props;

@@ -1,4 +1,3 @@
-import { match } from "single-key";
 import { withInitialState, fromStateMachine } from "../utils";
 import {
   ADD_COMMENT,
