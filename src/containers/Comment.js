@@ -17,20 +17,30 @@ const enhancer = connect(
 );
 
 class CommentContainerBase extends Component {
+  static defaultProps = {
+    styleOdd: true
+  };
   render() {
-    const { comment, toggleComment } = this.props;
+    const { comment, toggleComment, styleOdd } = this.props;
 
     const { kids } = comment;
     const childElements = comment.collapsed
       ? []
-      : kids.map(childId => {
-          return <CommentContainer id={childId} key={childId} />;
+      : kids.map((childId, index) => {
+          return (
+            <CommentContainer
+              id={childId}
+              key={childId}
+              styleOdd={index % 2 === 0 ? !styleOdd : styleOdd}
+            />
+          );
         });
 
     const controlElement = <Control id={comment.id} />;
 
     return (
       <Comment
+        styleOdd={styleOdd}
         comment={comment}
         control={controlElement}
         onToggleCollapse={toggleComment}

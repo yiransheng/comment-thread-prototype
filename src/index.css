@@ -55,12 +55,21 @@ body {
   border-right: 1px solid #999;
 }
 .children-list {
-  padding-left: 0.5rem;
+  margin-left: 0.5rem;
   border-top: 1px solid #999;
   border-left: 3px solid #999;
   border-bottom: 1px solid #999;
   margin-top: 2px;
   margin-bottom: -1px;
+}
+.comment-container.odd {
+  background: #fafafa;
+}
+.comment-container.even {
+  background: #f0f0f0;
+}
+.comment-body {
+  padding: 0.25rem 0.5rem;
 }
 
 

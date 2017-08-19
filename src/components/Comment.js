@@ -20,10 +20,10 @@ const CommentBody = wrapChildren(function({ children }) {
   );
 });
 
-function Comment({ children = null, comment, control, onToggleCollapse }) {
+function Comment({ children = null, comment, styleOdd, control, onToggleCollapse }) {
   const { body, timestamp, by, collapsed } = comment;
   return (
-    <div className="comment-container">
+    <div className={`comment-container ${styleOdd ? "odd" : "even"}`}>
       <div className="comment">
         <div className="comment-meta">
           <CollapseToggle

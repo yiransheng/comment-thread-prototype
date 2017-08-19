@@ -14,8 +14,8 @@ export default class Thread extends Component {
   render() {
     const { post } = this.props;
     const { kids } = post;
-    const childElements = kids.map(childId => {
-      return <Comment id={childId} key={childId} />;
+    const childElements = kids.map((childId, index) => {
+      return <Comment id={childId} key={childId} styleOdd={index % 2 === 0}/>;
     });
     return (
       <Post post={post} control={<Control id={post.id} />}>
