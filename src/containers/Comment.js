@@ -79,6 +79,7 @@ class CommentContainerBase extends Component {
     if (reply) {
       controlElement = (
         <CommentForm
+          user={reply.user}
           body={reply.body}
           onChange={updateReply}
           onSubmit={this.handleSubmit}

@@ -27,10 +27,10 @@ export function startReply(parent, user = "me") {
   };
 }
 
-export function updateReply(body) {
+export function updateReply(payload) {
   return {
     type: C.UPDATE_COMMENT,
-    payload: { body }
+    payload
   };
 }
 

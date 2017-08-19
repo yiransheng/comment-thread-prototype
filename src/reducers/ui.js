@@ -25,11 +25,12 @@ const _uiReducer = fromStateMachine({
   AddingComment: {
     [UPDATE_COMMENT](state, action) {
       const currentComment = state.AddingComment;
-      const { body } = action.payload;
+      const { body, user } = action.payload;
       return {
         AddingComment: {
           ...currentComment,
-          body
+          body,
+          user
         }
       };
     },
