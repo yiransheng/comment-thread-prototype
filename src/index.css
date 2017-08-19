@@ -80,6 +80,12 @@ body {
   text-align: left;
 }
 
+.toggle {
+  margin: 0 0.25rem;
+  color: #369;
+  cursor: pointer;
+}
+
 /* pretty button below */
 .btn {
   position: relative;

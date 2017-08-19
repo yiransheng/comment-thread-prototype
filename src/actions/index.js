@@ -10,6 +10,7 @@ export function submitComment(parentId, commentEntity) {
         id: shortid(),
         kids : [],
         kind : "comment",
+        collapsed : false,
         ...commentEntity,
       }
     }
@@ -31,6 +32,16 @@ export function updateReply(payload) {
   return {
     type: C.UPDATE_COMMENT,
     payload
+  };
+}
+
+export function toggleComment(commentId, collapsed) {
+  return {
+    type : C.TOGGLE_COMMMENT,
+    payload : {
+      commentId,
+      collapsed
+    }
   };
 }
 

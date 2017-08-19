@@ -1,5 +1,5 @@
 import { createReducer } from "redux-create-reducer";
-import { SUBMIT_COMMENT } from "../actions";
+import { SUBMIT_COMMENT, TOGGLE_COMMMENT } from "../actions";
 
 // initial state set at rootReducer level
 export const entitiesReducer = createReducer(
@@ -24,6 +24,17 @@ export const entitiesReducer = createReducer(
         // proper solution involves some error handling / ui notification
         return state;
       }
+    },
+    [TOGGLE_COMMMENT](state, action) {
+      const { commentId, collapsed } = action.payload;
+      const comment = state[commentId];
+      return {
+        ...state,
+        [commentId]: {
+          ...comment,
+          collapsed
+        }
+      };
     }
   }
 );
