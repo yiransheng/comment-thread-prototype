@@ -42,9 +42,12 @@ body {
   margin-bottom: 0.5rem;
 }
 .author {
-  flex-grow: 0;
+  flex-grow: 1;
   flex-shrink: 0;
-  width: 120px;
+  min-width: 120px;
+}
+.time {
+  flex-grow: 8;
 }
 .children-container {
   padding-left: 0.5rem;
