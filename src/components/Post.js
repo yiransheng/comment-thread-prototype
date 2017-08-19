@@ -1,7 +1,7 @@
 import React from "react";
 import TimeAgo from "react-timeago";
 
-function Post({ children = null, post }) {
+function Post({ children = null, post, control }) {
   const { title, body, timestamp, by } = post;
   return (
     <div className="post-container">
@@ -19,6 +19,9 @@ function Post({ children = null, post }) {
       </div>
       <div className="children-container">
         {children}
+      </div>
+      <div className="post-control">
+        {control}
       </div>
     </div>
   );
