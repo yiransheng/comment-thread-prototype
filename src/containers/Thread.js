@@ -15,12 +15,17 @@ export default class Thread extends Component {
     const { post } = this.props;
     const { kids } = post;
     const childElements = kids.map((childId, index) => {
-      return <Comment id={childId} key={childId} styleOdd={index % 2 === 0}/>;
+      return <Comment id={childId} key={childId} styleOdd={index % 2 === 0} />;
     });
+    const childrenClassName = `children-list ${childElements.length % 2 === 0
+      ? "even"
+      : "odd"}`;
     return (
       <Post post={post} control={<Control id={post.id} />}>
         {childElements.length
-          ? <div className="children-list odd">{childElements}</div>
+          ? <div className={childrenClassName}>
+              {childElements}
+            </div>
           : null}
       </Post>
     );
