@@ -1,7 +1,8 @@
 import React from "react";
 import TimeAgo from "react-timeago";
+import Button from "./ReplyButton";
 
-function Comment({ children=null, comment }) {
+function Comment({ children=null, comment, onReplyTo }) {
   const { body, timestamp, by } = comment;
   return (
     <div>
@@ -14,6 +15,9 @@ function Comment({ children=null, comment }) {
         </div>
         <div className="comment-body">
           {body}
+        </div>
+        <div className="comment-control">
+          <Button onClick={() => onReplyTo(comment)}>+ Reply</Button>
         </div>
       </div>
       {children}
