@@ -1,3 +1,4 @@
+import { identity } from "lodash";
 import { combineReducers } from "redux";
 
 import { withInitialState } from "../utils";
@@ -8,7 +9,9 @@ import { entitiesReducer } from "./entities";
 const rootReducer = withInitialState(getInitialState())(
   combineReducers({
     ui: uiReducer,
-    entities: entitiesReducer
+    entities: entitiesReducer,
+    // keep root post fixed for now (reducer is an identity function)
+    rootThread : identity
   })
 );
 
