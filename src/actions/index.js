@@ -1,14 +1,25 @@
 import * as C from "./action-constants";
 import shortid from "shortid";
 
-
-export function createComment(parentId, commentEntity) {
+export function submitComment(parentId, commentEntity) {
   return {
-    type : C.UPDATE_COMMENT,
-    payload : {
+    type: C.SUBMIT_COMMENT,
+    payload: {
       ...commentEntity,
       parentId,
-      id : shortid()
+      id: shortid()
+    }
+  };
+}
+
+export function startReply(parent, user="me") {
+  console.log(parent);
+  const parentId = parent.id;
+  return {
+    type: C.ADD_COMMENT,
+    payload: {
+      parentId,
+      user
     }
   };
 }

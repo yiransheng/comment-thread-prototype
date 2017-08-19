@@ -21,6 +21,7 @@ export function getInitialState() {
     entities: {
       [rootThreadId]: rootPost,
       [testCommentId] : {
+        id : testCommentId,
         by : "me",
         body : "test",
         timestamp : new Date(),
