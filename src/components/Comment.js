@@ -1,4 +1,5 @@
 import React from "react";
+import Markdown from "react-markdown";
 import TimeAgo from "react-timeago";
 
 function Comment({ children=null, comment, control }) {
@@ -13,7 +14,7 @@ function Comment({ children=null, comment, control }) {
           </span>
         </div>
         <div className="comment-body">
-          {body}
+          <Markdown source={body} />
         </div>
         <div className="comment-control">
           {control}

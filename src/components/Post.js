@@ -1,5 +1,6 @@
 import React from "react";
 import TimeAgo from "react-timeago";
+import Markdown from "react-markdown";
 
 function Post({ children = null, post, control }) {
   const { title, body, timestamp, by } = post;
@@ -14,7 +15,7 @@ function Post({ children = null, post, control }) {
           </span>
         </div>
         <div className="post-body">
-          {body}
+          <Markdown source={body} />
         </div>
       </div>
       <div className="children-container">

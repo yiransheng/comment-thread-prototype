@@ -20,6 +20,7 @@ function CommentForm({ user = "me", body = "", onChange, onSubmit }) {
       <br />
       <Textarea
         className="comment-form"
+        placeholder="Write your comment (you can use markdown)"
         minRows={5}
         maxRows={24}
         value={body}
