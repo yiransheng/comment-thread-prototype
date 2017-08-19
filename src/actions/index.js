@@ -1,11 +1,10 @@
 import * as C from "./action-constants";
 import shortid from "shortid";
 
-export * from "./action-constants";
 
 export function createComment(parentId, commentEntity) {
   return {
-    type : C.CREATE_COMMENT,
+    type : C.UPDATE_COMMENT,
     payload : {
       ...commentEntity,
       parentId,
@@ -13,3 +12,5 @@ export function createComment(parentId, commentEntity) {
     }
   };
 }
+
+export * from "./action-constants";
