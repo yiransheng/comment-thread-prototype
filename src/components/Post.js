@@ -2,6 +2,16 @@ import React from "react";
 import TimeAgo from "react-timeago";
 import Markdown from "react-markdown";
 
+import wrapChildren from "./wrap-children";
+
+const PostControl = wrapChildren(function({ children }) {
+  return (
+    <div className="post-control">
+      {children}
+    </div>
+  );
+});
+
 function Post({ children = null, post, control }) {
   const { title, body, timestamp, by } = post;
   return (
@@ -21,9 +31,7 @@ function Post({ children = null, post, control }) {
       <div className="children-container">
         {children}
       </div>
-      <div className="post-control">
-        {control}
-      </div>
+      <PostControl>{control}</PostControl>
     </div>
   );
 }

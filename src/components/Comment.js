@@ -2,7 +2,17 @@ import React from "react";
 import Markdown from "react-markdown";
 import TimeAgo from "react-timeago";
 
-function Comment({ children=null, comment, control }) {
+import wrapChildren from "./wrap-children";
+
+const CommentControl = wrapChildren(function({ children }) {
+  return (
+    <div className="comment-control">
+      {children}
+    </div>
+  );
+});
+
+function Comment({ children = null, comment, control }) {
   const { body, timestamp, by } = comment;
   return (
     <div className="comment-container">
@@ -16,9 +26,7 @@ function Comment({ children=null, comment, control }) {
         <div className="comment-body">
           <Markdown source={body} />
         </div>
-        <div className="comment-control">
-          {control}
-        </div>
+        <CommentControl>{control}</CommentControl>
       </div>
       {children}
     </div>
