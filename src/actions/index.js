@@ -5,15 +5,17 @@ export function submitComment(parentId, commentEntity) {
   return {
     type: C.SUBMIT_COMMENT,
     payload: {
-      ...commentEntity,
       parentId,
-      id: shortid()
+      comment: {
+        id: shortid(),
+        kids : [],
+        ...commentEntity,
+      }
     }
   };
 }
 
-export function startReply(parent, user="me") {
-  console.log(parent);
+export function startReply(parent, user = "me") {
   const parentId = parent.id;
   return {
     type: C.ADD_COMMENT,
@@ -21,6 +23,13 @@ export function startReply(parent, user="me") {
       parentId,
       user
     }
+  };
+}
+
+export function updateReply(body) {
+  return {
+    type: C.UPDATE_COMMENT,
+    payload: { body }
   };
 }
 

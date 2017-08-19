@@ -2,7 +2,7 @@ import React from "react";
 import TimeAgo from "react-timeago";
 import Button from "./ReplyButton";
 
-function Comment({ children=null, comment, onReplyTo }) {
+function Comment({ children=null, comment, control }) {
   const { body, timestamp, by } = comment;
   return (
     <div>
@@ -17,7 +17,7 @@ function Comment({ children=null, comment, onReplyTo }) {
           {body}
         </div>
         <div className="comment-control">
-          <Button onClick={() => onReplyTo(comment)}>+ Reply</Button>
+          {control}
         </div>
       </div>
       {children}
