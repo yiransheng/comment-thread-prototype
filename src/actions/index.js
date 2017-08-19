@@ -7,7 +7,7 @@ export function createComment(parentId, commentEntity) {
   return {
     type : C.CREATE_COMMENT,
     payload : {
-      ...comment,
+      ...commentEntity,
       parentId,
       id : shortid()
     }
