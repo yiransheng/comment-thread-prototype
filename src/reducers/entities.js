@@ -12,7 +12,7 @@ export const entitiesReducer = createReducer(
       if (parent) {
         const updatedParent = {
           ...parent,
-          kids: [...parent.kids, commentId]
+          kids: [commentId, ...parent.kids]
         };
         return {
           ...state,

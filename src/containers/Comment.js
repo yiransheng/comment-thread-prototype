@@ -7,7 +7,7 @@ import Comment from "../components/Comment";
 import Button from "../components/ReplyButton";
 import CommentForm from "../components/CommentForm";
 
-@connect(
+const enhancer = connect(
   ({ entities, ui }, ownProps) => {
     const commentId = ownProps.id;
     const comment = entities[commentId];
@@ -47,14 +47,15 @@ import CommentForm from "../components/CommentForm";
     updateReply,
     submitComment
   }
-)
-export default class CommentContainer extends Component {
+);
+
+class CommentContainerBase extends Component {
   handleSubmit = () => {
     const { reply } = this.props;
     if (reply) {
       this.props.submitComment(this.props.id, {
         body: reply.body,
-        user: reply.user,
+        by: reply.user,
         timestamp: new Date()
       });
     }
@@ -68,10 +69,12 @@ export default class CommentContainer extends Component {
       reply,
       canReply
     } = this.props;
+
     const { kids } = comment;
     const childElements = kids.map(childId => {
       return <CommentContainer id={childId} key={childId} />;
     });
+
     let controlElement = null;
     if (reply) {
       controlElement = (
@@ -86,6 +89,7 @@ export default class CommentContainer extends Component {
         <Button onClick={() => startReply(comment)}>+ Reply</Button>
       );
     }
+
     return (
       <Comment
         comment={comment}
@@ -99,3 +103,7 @@ export default class CommentContainer extends Component {
     );
   }
 }
+
+const CommentContainer = enhancer(CommentContainerBase);
+
+export default CommentContainer;

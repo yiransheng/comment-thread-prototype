@@ -5,7 +5,7 @@ import Button from "./ReplyButton";
 function Comment({ children=null, comment, control }) {
   const { body, timestamp, by } = comment;
   return (
-    <div>
+    <div className="comment-container">
       <div className="comment">
         <div className="comment-meta">
           <span className="author"><b>{by}</b></span>

@@ -9,6 +9,7 @@ export function submitComment(parentId, commentEntity) {
       comment: {
         id: shortid(),
         kids : [],
+        kind : "comment",
         ...commentEntity,
       }
     }
