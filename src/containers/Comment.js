@@ -21,9 +21,11 @@ class CommentContainerBase extends Component {
     const { comment, toggleComment } = this.props;
 
     const { kids } = comment;
-    const childElements = kids.map(childId => {
-      return <CommentContainer id={childId} key={childId} />;
-    });
+    const childElements = comment.collapsed
+      ? []
+      : kids.map(childId => {
+          return <CommentContainer id={childId} key={childId} />;
+        });
 
     const controlElement = <Control id={comment.id} />;
 

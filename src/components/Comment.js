@@ -12,6 +12,13 @@ const CommentControl = wrapChildren(function({ children }) {
     </div>
   );
 });
+const CommentBody = wrapChildren(function({ children }) {
+  return (
+    <div className="comment-body">
+      {children}
+    </div>
+  );
+});
 
 function Comment({ children = null, comment, control, onToggleCollapse }) {
   const { body, timestamp, by, collapsed } = comment;
@@ -28,9 +35,7 @@ function Comment({ children = null, comment, control, onToggleCollapse }) {
             <TimeAgo date={timestamp} minPeriod={15} />
           </span>
         </div>
-        <div className="comment-body">
-          <Markdown source={body} />
-        </div>
+        <CommentBody>{collapsed ? null : <Markdown source={body} />}</CommentBody>
         <CommentControl>{control}</CommentControl>
       </div>
       {children}

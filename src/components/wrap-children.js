@@ -5,8 +5,8 @@ import { wrapDisplayName } from "recompose";
 // otherwise renders null
 export default function wrapChildren(WrappedComponent) {
   function Component({ children }) {
-    const child = React.Children.only(children);
-    if (child) {
+    if (children !== null) {
+      const child = React.Children.only(children);
       return <WrappedComponent>{child}</WrappedComponent>;
     }
     return null;
