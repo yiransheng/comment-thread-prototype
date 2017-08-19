@@ -1,11 +1,11 @@
 import React from "react";
 
-function Comment({ children=null, post }) {
-  const { body, timestamp, by } = post;
+function Comment({ children=null, comment }) {
+  const { body, timestamp, by } = comment;
   return (
     <div>
-      <div className="post">
-        <div className="post-meta">
+      <div className="comment">
+        <div className="comment-meta">
           <span className="author">{by}</span>
         </div>
       </div>

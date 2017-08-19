@@ -14,9 +14,9 @@ export default class Thread extends Component {
     const { post } = this.props;
     const { kids } = post;
     return (
-      <Post>
+      <Post post={post}>
         {kids.map(childId => {
-          return <Comment id={childId} />;
+          return <Comment id={childId} key={childId}/>;
         })}
       </Post>
     );

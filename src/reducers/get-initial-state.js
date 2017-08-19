@@ -18,7 +18,7 @@ export function getInitialState() {
       Idle: null
     },
     entities: {
-      [rootThreadId]: rootPost
+      [rootThreadId]: rootPost,
       [testCommentId] : {
         by : "me",
         body : "test",

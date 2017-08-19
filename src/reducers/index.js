@@ -1,4 +1,3 @@
-import { identity } from "lodash";
 import { combineReducers } from "redux";
 
 import { withInitialState } from "../utils";
@@ -11,7 +10,9 @@ const rootReducer = withInitialState(getInitialState())(
     ui: uiReducer,
     entities: entitiesReducer,
     // keep root post fixed for now (reducer is an identity function)
-    rootThread : identity
+    // default to null to keep redux happy
+    // (initial state is set at rootReducer level upon createStore)
+    rootThread : (state) => state || null,
   })
 );
 

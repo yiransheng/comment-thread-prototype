@@ -13,9 +13,9 @@ export default class CommentContainer extends Component {
     const { comment } = this.props;
     const { kids } = comment;
     return (
-      <Comment>
+      <Comment comment={comment}>
         {kids.map(childId => {
-          return <CommentContainer id={childId} />;
+          return <CommentContainer id={childId} key={childId}/>;
         })}
       </Comment>
     );
