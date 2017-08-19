@@ -46,7 +46,7 @@ class CommentContainerBase extends Component {
         onToggleCollapse={toggleComment}
       >
         {childElements.length
-          ? <div className="children-list">{childElements}</div>
+          ? <div className={`children-list ${styleOdd ? "even" : "odd"}`}>{childElements}</div>
           : null}
       </Comment>
     );

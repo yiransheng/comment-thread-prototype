@@ -20,7 +20,7 @@ export default class Thread extends Component {
     return (
       <Post post={post} control={<Control id={post.id} />}>
         {childElements.length
-          ? <div className="children-list">{childElements}</div>
+          ? <div className="children-list odd">{childElements}</div>
           : null}
       </Post>
     );
