@@ -2,4 +2,50 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  font-size: 16px;
+  background-color: #f0f0f0;
+}
+
+/* keep line-height, margin-top, margin-bottom as multiples of 0.5rem for good vertical rhythm */
+
+.post-container {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0.5rem auto;
+}
+.post {
+  border: 1px dashed #000;
+  border-radius: 3px;
+  padding: 0.5rem;
+  padding-bottom: 1.5rem;
+  min-height: 0.5vw;
+}
+.post h1 {
+  width: 100%;
+  font-size: 2.4rem;
+  color: #666;
+  margin: 1rem 0 0.5rem;
+  font-weight: lighter;
+}
+.post-meta, .comment-meta {
+  border-bottom: 1px solid #dadada;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+.author {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 120px;
+}
+.children-container {
+  padding-left: 0.5rem;
+}
+.children-list {
+  padding-left: 0.5rem;
+  border-left: 3px solid #999;
+  margin-top: 2px;
 }

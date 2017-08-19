@@ -4,11 +4,11 @@ import TimeAgo from "react-timeago";
 function Post({ children = null, post }) {
   const { title, body, timestamp, by } = post;
   return (
-    <div>
+    <div className="post-container">
       <div className="post">
         <h1>{title}</h1>
         <div className="post-meta">
-          <span className="author">{by}</span>
+          <span className="author">Created by: <b>{by}</b></span>
           <span className="time">
             <TimeAgo date={timestamp} minPeriod={15} />
           </span>
@@ -17,7 +17,9 @@ function Post({ children = null, post }) {
           {body}
         </div>
       </div>
-      {children}
+      <div className="children-container">
+        {children}
+      </div>
     </div>
   );
 }

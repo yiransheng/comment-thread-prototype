@@ -7,7 +7,7 @@ function Comment({ children=null, comment }) {
     <div>
       <div className="comment">
         <div className="comment-meta">
-          <span className="author">{by}</span>
+          <span className="author"><b>{by}</b></span>
           <span className="time">
             <TimeAgo date={timestamp} minPeriod={15} />
           </span>
