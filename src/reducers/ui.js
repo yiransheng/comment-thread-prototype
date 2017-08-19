@@ -1,6 +1,5 @@
-import { Effects, loop } from "redux-loop";
 import { match } from "single-key";
-import { fromStateMachine } from "../utils";
+import { withInitialState, fromStateMachine } from "../utils";
 import {
   ADD_COMMENT,
   UPDATE_COMMENT,
@@ -10,7 +9,7 @@ import {
 
 // --
 
-export const uiReducer = fromStateMachine({
+const _uiReducer = fromStateMachine({
   Idle: {
     [ADD_COMMENT](_, action) {
       const { parentId, user } = action.payload;
@@ -42,3 +41,5 @@ export const uiReducer = fromStateMachine({
     }
   }
 });
+
+export const uiReducer = withInitialState({ Idle: null })(_uiReducer);

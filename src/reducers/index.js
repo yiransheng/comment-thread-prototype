@@ -5,11 +5,10 @@ import { getInitialState } from "./get-initial-state";
 import { uiReducer } from "./ui";
 import { entitiesReducer } from "./entities";
 
-const rootReducer = withInitialState(
-  getInitialState(),
+const rootReducer = withInitialState(getInitialState())(
   combineReducers({
     ui: uiReducer,
-    entries: entitiesReducer
+    entities: entitiesReducer
   })
 );
 

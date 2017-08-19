@@ -1,6 +1,6 @@
 import { compose } from "redux";
 import { match } from "single-key";
-import { identity, constant, mapValues, startsWith } from "lodash";
+import { identity, constant, mapValues } from "lodash";
 
 
 function createReducer(mappings) {
