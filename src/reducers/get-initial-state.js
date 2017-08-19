@@ -8,11 +8,10 @@ export function getInitialState() {
     kind : "post",
     // pretend post was created some time ago
     timestamp : new Date(Date.now() - 86000),
-    title: "Well",
-    by : "me",
-    body: "Hello World.",
-    kids: [testCommentId]
-    // kids : []
+    title: "Hello world.",
+    by : "Some one",
+    body: "This message is channeled from somewhere far away.",
+    kids : []
   };
   return {
     rootThread : rootThreadId,
@@ -20,15 +19,7 @@ export function getInitialState() {
       Idle: null
     },
     entities: {
-      [rootThreadId]: rootPost,
-      [testCommentId] : {
-        id : testCommentId,
-        kind : "comment",
-        by : "me",
-        body : "test",
-        timestamp : new Date(),
-        kids : []
-      }
+      [rootThreadId]: rootPost
     }
   };
 }

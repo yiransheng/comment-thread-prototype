@@ -9,7 +9,7 @@ function ReplyButton({
 }) {
   return (
     <button
-      className="btn"
+      className={disabled ? "btn disabled" : "btn"}
       type={type}
       onClick={disabled ? noop : onClick}
       disabled={disabled}
