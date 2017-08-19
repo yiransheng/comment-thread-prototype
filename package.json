@@ -3,15 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
     "react-router": "^4.1.2",
     "react-scripts": "1.0.11",
     "react-timeago": "^3.4.3",
     "redux": "^3.7.2",
     "redux-create-reducer": "^1.1.1",
     "redux-logger": "^3.0.6",
+    "redux-loop": "2.2.0",
     "reselect": "^3.0.1",
+    "shortid": "^2.2.8",
     "single-key": "^1.0.0"
   },
   "scripts": {
