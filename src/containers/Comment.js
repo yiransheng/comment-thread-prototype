@@ -23,21 +23,6 @@ class CommentContainerBase extends Component {
   };
   render() {
     const { comment, toggleComment, styleOdd, nestLevel } = this.props;
-
-    const { kids } = comment;
-    const childElements = comment.collapsed
-      ? []
-      : kids.map((childId, index) => {
-          return (
-            <CommentContainer
-              id={childId}
-              key={childId}
-              nestLevel={nestLevel + 1}
-              styleOdd={index % 2 === 0 ? !styleOdd : styleOdd}
-            />
-          );
-        });
-
     const controlElement = <Control id={comment.id} />;
 
     return (
