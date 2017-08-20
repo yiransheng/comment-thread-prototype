@@ -72,6 +72,9 @@ body {
 .comment-body {
   padding: 0.25rem 0.5rem;
 }
+.load-more {
+  padding: 0.25rem 0.5rem;
+}
 
 
 .post-control,

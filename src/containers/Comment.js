@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Comment from "../components/Comment";
@@ -21,7 +22,7 @@ class CommentContainerBase extends Component {
     styleOdd: true
   };
   render() {
-    const { comment, toggleComment, styleOdd } = this.props;
+    const { comment, toggleComment, styleOdd, nestLevel } = this.props;
 
     const { kids } = comment;
     const childElements = comment.collapsed
@@ -31,6 +32,7 @@ class CommentContainerBase extends Component {
             <CommentContainer
               id={childId}
               key={childId}
+              nestLevel={nestLevel + 1}
               styleOdd={index % 2 === 0 ? !styleOdd : styleOdd}
             />
           );
@@ -45,14 +47,45 @@ class CommentContainerBase extends Component {
         control={controlElement}
         onToggleCollapse={toggleComment}
       >
-        {childElements.length
-          ? <div className={`children-list ${styleOdd ? "even" : "odd"}`}>{childElements}</div>
-          : null}
+        <CommentChildren
+          comment={comment}
+          nestLevel={nestLevel}
+          styleOdd={styleOdd}
+        />
       </Comment>
     );
   }
 }
 
 const CommentContainer = enhancer(CommentContainerBase);
+
+function CommentChildren({ comment, nestLevel, styleOdd }) {
+  if (comment.kids.length === 0 || comment.collapsed) {
+    return null;
+  } else if (nestLevel > 5) {
+    return (
+      <div className="load-more">
+        <Link to={`/item/${comment.id}`}>
+          {`Load ${comment.kids.length} more replies.`}
+        </Link>
+      </div>
+    );
+  } else {
+    return (
+      <div className={`children-list ${styleOdd ? "even" : "odd"}`}>
+        {comment.kids.map((childId, index) => {
+          return (
+            <CommentContainer
+              id={childId}
+              key={childId}
+              nestLevel={nestLevel + 1}
+              styleOdd={index % 2 === 0 ? !styleOdd : styleOdd}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+}
 
 export default CommentContainer;
