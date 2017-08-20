@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Markdown from "react-markdown";
 import TimeAgo from "react-timeago";
 
@@ -32,7 +33,9 @@ function Comment({ children = null, comment, styleOdd, control, onToggleCollapse
           />
           <span className="author"><b>{by}</b></span>
           <span className="time">
-            <TimeAgo date={timestamp} minPeriod={15} />
+            <Link to={`/item/${comment.id}`}>
+              <TimeAgo date={timestamp} minPeriod={15} />
+            </Link>
           </span>
         </div>
         <CommentBody>{collapsed ? null : <Markdown source={body} />}</CommentBody>
