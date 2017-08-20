@@ -13,9 +13,9 @@ Due to time limit, quite a few corners were cut :)
 - CSS modules (or css-in-js type solution)
   - Entire app is styled by a single global `index.css`, which is the default setup from `create-react-app`
   - This app does not include many components, and I did not want to spent a lot of time tweaking `webpack` configuration to wire up css modules
-- Testing
+- Testing (**UPDATE** added one unit test and test setup with jest and enzyme)
   - Unfortunately did not have enough time within three hours to add unit tests (will add some though)
-- Handling deep nesting
+- Handling deep nesting (**UPDATE** Implemented this now)
   - No special logic / system was setup to deal with deeply nested threads
   - I had an idea for an implementation similar to reddit, that is if a chain of comments gets too deep, instead of rendering the branches in the tree, simply put a "permlink" for the rest of the thread starting at current comment
     - To accomplish this, I would setup `react-router` and pass down `threadId` (either comment or top level post) through route params
