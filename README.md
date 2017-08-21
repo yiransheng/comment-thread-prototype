@@ -4,6 +4,8 @@
 
 A very basic `react` + `redux` app, bootstrapped with `create-react-app`.
 
+[Demo Link](http://descriptive-summer.surge.sh/)
+
 ### Some Shortcuts Taken
 
 Due to time limit, quite a few corners were cut :)
